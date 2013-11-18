@@ -19,7 +19,7 @@ import qualified Pipes.ByteString
 
 
 deserializingPipe :: 
-  (Monad m, Applicative m, Serializable a m) => 
+  (Monad m, Applicative m, Serializable m a) => 
   Pipe ByteString a (EitherT Text m) ()
 deserializingPipe = 
   await >>= processBS
@@ -33,7 +33,7 @@ deserializingPipe =
             Deserialize.Done a bs -> yield a >> processBS bs
 
 serializingProducer :: 
-  (Monad m, Applicative m, Serializable a m) => 
+  (Monad m, Applicative m, Serializable m a) => 
   a -> Producer ByteString m ()
 serializingProducer a = do
   (r, bs) <- lift $ Serialize.runLazy $ Serializable.serialize a
