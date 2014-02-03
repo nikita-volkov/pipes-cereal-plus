@@ -43,7 +43,7 @@ library
   build-depends:
     cereal-plus == 0.2.*,
     pipes-bytestring,
-    pipes == 4.0.*,
+    pipes >= 4.0 && < 4.2,
     errors,
     text,
     bytestring,
