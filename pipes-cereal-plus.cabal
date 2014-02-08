@@ -1,9 +1,9 @@
 name:
   pipes-cereal-plus
 version:
-  0.2.0
+  0.2.1
 synopsis:
-  Streaming serialization library on top of "pipes" and "cereal-plus".
+  A streaming serialization library on top of "pipes" and "cereal-plus"
 license:
   MIT
 license-file:
