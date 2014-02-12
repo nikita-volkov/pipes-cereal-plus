@@ -1,7 +1,7 @@
 name:
   pipes-cereal-plus
 version:
-  0.2.1
+  0.3.0
 synopsis:
   A streaming serialization library on top of "pipes" and "cereal-plus"
 license:
@@ -41,7 +41,7 @@ library
   other-modules:
     PipesCerealPlus.Prelude
   build-depends:
-    cereal-plus == 0.2.*,
+    cereal-plus == 0.3.*,
     pipes-bytestring,
     pipes >= 4.0 && < 4.2,
     errors,
