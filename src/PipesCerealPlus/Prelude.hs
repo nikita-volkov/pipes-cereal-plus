@@ -2,11 +2,7 @@ module PipesCerealPlus.Prelude
   ( 
     module Exports,
     LazyByteString,
-    (?:),
     traceM,
-    applyAll,
-    packText,
-    unpackText,
   )
   where
 
@@ -49,18 +45,19 @@ import Control.Monad.ST as Exports
 
 -- mtl
 import Control.Monad.Identity as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
+import Control.Monad.State as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
 import Control.Monad.Reader as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
-import Control.Monad.Writer as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM)
+import Control.Monad.Writer as Exports hiding (mapM_, sequence_, forM_, msum, mapM, sequence, forM, Any)
 import Control.Monad.Trans as Exports
+
+-- errors
+import Control.Error as Exports
 
 -- bytestring
 import Data.ByteString as Exports (ByteString)
 
 -- text
 import Data.Text as Exports (Text)
-
--- errors
-import Control.Error as Exports
 
 -- pipes
 import Pipes as Exports
@@ -72,21 +69,10 @@ import CerealPlus.Deserialize as Exports (Deserialize)
 
 
 import qualified Data.ByteString.Lazy
-import qualified Data.Text
 
 
 type LazyByteString = Data.ByteString.Lazy.ByteString
 
 
-(?:) :: Maybe a -> a -> a
-maybeA ?: b = fromMaybe b maybeA
-{-# INLINE (?:) #-}
-
 traceM :: (Monad m) => String -> m ()
 traceM s = trace s $ return ()
-
-applyAll :: Monad m => [a -> m b] -> a -> m [b]
-applyAll ops a = sequence $ map ($ a) ops
-
-packText = Data.Text.pack
-unpackText = Data.Text.unpack
