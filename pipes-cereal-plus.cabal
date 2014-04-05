@@ -1,7 +1,7 @@
 name:
   pipes-cereal-plus
 version:
-  0.3.2
+  0.3.3
 synopsis:
   A streaming serialization library on top of "pipes" and "cereal-plus"
 license:
@@ -19,7 +19,7 @@ maintainer:
 copyright:
   (c) 2013, Nikita Volkov
 category:
-  Serialization
+  Serialization, Pipes
 build-type:
   Simple
 cabal-version:
