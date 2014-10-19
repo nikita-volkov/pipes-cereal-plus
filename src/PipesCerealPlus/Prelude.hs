@@ -2,7 +2,6 @@ module PipesCerealPlus.Prelude
   ( 
     module Exports,
     LazyByteString,
-    traceM,
   )
   where
 
@@ -25,7 +24,7 @@ import Data.Word as Exports
 import Data.Ratio as Exports
 import Data.Fixed as Exports
 import Data.Ix as Exports
-import Data.Data as Exports
+import Data.Data as Exports (Data, Typeable)
 import Text.Read as Exports (readMaybe, readEither)
 import Control.Exception as Exports hiding (tryJust)
 import Control.Concurrent as Exports hiding (yield)
@@ -72,7 +71,3 @@ import qualified Data.ByteString.Lazy
 
 
 type LazyByteString = Data.ByteString.Lazy.ByteString
-
-
-traceM :: (Monad m) => String -> m ()
-traceM s = trace s $ return ()
